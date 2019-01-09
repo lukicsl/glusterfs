@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $LC_SRV:$GVOL $LC_DIR
 echo $$
 trap 'trap - TERM; umount $LC_DIR; kill -s TERM -- -$$' TERM
 while true; do
