@@ -14,4 +14,5 @@ RUN apt-get update && \
     
 RUN mkdir -p /etc/glusterfs
 COPY ./client.sh /etc/glusterfs
+RUN cmhod ug+x /etc/glusterfs/client.sh
 CMD ["/etc/glusterfs/client.sh"]
