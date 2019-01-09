@@ -1,10 +1,10 @@
 #!/bin/bash
-echo $LC_SRV:$GVOL $LC_DIR
 echo $$
 trap 'trap - TERM; umount $LC_DIR; kill -s TERM -- -$$' TERM
 if (cat /etc/hostname-host) then
   LC_SRV=`cat /etc/hostname-host`
 fi
+echo $LC_SRV:$GVOL $LC_DIR
 while true; do
   mount.glusterfs $LC_SRV:$GVOL $LC_DIR
   if [ $? -eq 0 ]
