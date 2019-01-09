@@ -3,13 +3,15 @@ FROM debian:stretch-slim
 MAINTAINER Slavisa lukic  <lukic@gmx.ch>
 
 ENV container docker
+ENV LC_SRV=hostname
+ENV GVOL=/gv0
+ENV LC_DIR=/datavol
 
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends nfs-common glusterfs-client && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
     
-# Directory for coredumps. Note,kernel.core_pattern must be configured as such
-RUN mkdir -p /var/log/core
-
-CMD ["/bin/bash"]
+RUN mkdir -p /etc/glusterfs
+COPY ./client.sh /etc/glusterfs
+CMD ["/etc/glusterfs/client.sh"]
