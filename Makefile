@@ -11,8 +11,8 @@ PLUGIN_NAME_CLI ?= glustercl
 PLUGIN_TAG ?= armv7
 PLUGIN_IMAGE_SRV ?= $(PLUGIN_USER)/$(PLUGIN_NAME_SRV):$(PLUGIN_TAG)
 PLUGIN_IMAGE_CLI ?= $(PLUGIN_USER)/$(PLUGIN_NAME_CLI):$(PLUGIN_TAG)
-DOCKERFILE_SRV ?= Dockerfile-srv
-DOCKERFILE_CLI ?= Dockerfile-cli
+DOCKERFILE_SRV ?= ./Dockerfile-srv
+DOCKERFILE_CLI ?= ./Dockerfile-cli
 
 ERROR_COLOR=\033[31;01m
 NO_COLOR=\033[0m
@@ -23,7 +23,7 @@ all: docker-image-srv docker-image-push-srv docker-image-cli docker-image-push-c
 
 docker-image-srv:
 	@echo -e "$(OK_COLOR)==> Docker build image : ${PLUGIN_IMAGE_SRV} $(NO_COLOR)"
-	docker build -t ${PLUGIN_IMAGE_SRV} -f ${DOCKERFILE_SRV}
+	docker build -t ${PLUGIN_IMAGE_SRV} -f ${DOCKERFILE_SRV} .
 
 docker-image-push-srv:
 	@echo -e "$(OK_COLOR)==> push plugin : ${PLUGIN_IMAGE_SRV}$(NO_COLOR)"
@@ -31,7 +31,7 @@ docker-image-push-srv:
 	
 docker-image-cli:
 	@echo -e "$(OK_COLOR)==> Docker build image : ${PLUGIN_IMAGE_CLI} $(NO_COLOR)"
-	docker build -t ${PLUGIN_IMAGE_CLI}  -f ${DOCKERFILE_CLI}
+	docker build -t ${PLUGIN_IMAGE_CLI}  -f ${DOCKERFILE_CLI} .
 
 docker-image-push-cli:
 	@echo -e "$(OK_COLOR)==> push plugin : ${PLUGIN_IMAGE_CLI}$(NO_COLOR)"
