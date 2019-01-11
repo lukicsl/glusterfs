@@ -1,5 +1,5 @@
-FROM arm32v7/ubuntu
-USER root
+FROM debian:stretch-slim
+
 VOLUME /data
 ENV TERM xterm
 
