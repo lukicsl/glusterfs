@@ -8,5 +8,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-CMD glusterd --no-daemon
-
+RUN mkdir -p /etc/glusterfs
+COPY ./server.sh /etc/glusterfs
+RUN chmod ug+x /etc/glusterfs/server.sh
+CMD ["/etc/glusterfs/server.sh"]
