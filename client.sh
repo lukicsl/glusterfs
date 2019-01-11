@@ -2,7 +2,7 @@
 echo $$
 trap 'trap - TERM; umount $LC_DIR; kill -s TERM -- -$$' TERM
 
-if [ -f /etc/hostname-host ] && [ $LC_SRV == "hostname" ]; then
+if [ -f /etc/hostname-host ] && [ $LC_SRV == "localhost" ]; then
   LC_SRV=`cat /etc/hostname-host`
 fi
 
