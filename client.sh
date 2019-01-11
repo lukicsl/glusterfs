@@ -1,9 +1,15 @@
 #!/bin/bash
 echo $$
 trap 'trap - TERM; umount $LC_DIR; kill -s TERM -- -$$' TERM
-if (cat /etc/hostname-host) then
+
+if [ -f /etc/hostname-host ]; then
   LC_SRV=`cat /etc/hostname-host`
 fi
+
+if [ ! -d $LC_DIR ]; then
+  mkdir $LC_DIR
+fi
+
 echo $LC_SRV:$GVOL $LC_DIR
 
 while true; do
