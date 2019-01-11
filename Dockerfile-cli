@@ -3,7 +3,7 @@ FROM debian:stretch-slim
 MAINTAINER Slavisa lukic  <lukic@gmx.ch>
 
 ENV container docker
-ENV LC_SRV=hostname
+ENV LC_SRV=localhost
 ENV GVOL=/gv0
 ENV LC_DIR=/datavol
 
