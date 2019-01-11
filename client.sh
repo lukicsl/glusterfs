@@ -5,6 +5,7 @@ if (cat /etc/hostname-host) then
   LC_SRV=`cat /etc/hostname-host`
 fi
 echo $LC_SRV:$GVOL $LC_DIR
+sleep 10
 while true; do
   mount.glusterfs $LC_SRV:$GVOL $LC_DIR
   if [ $? -eq 0 ]
