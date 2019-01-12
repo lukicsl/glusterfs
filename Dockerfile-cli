@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian:stretch-slim
 
 MAINTAINER Slavisa lukic  <lukic@gmx.ch>
 
