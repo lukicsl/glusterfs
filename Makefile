@@ -26,7 +26,7 @@ docker-image-srv:
 	docker build -t ${PLUGIN_IMAGE_SRV} -f ${DOCKERFILE_SRV} .
 
 docker-image-push-srv:
-	@echo -e "$(OK_COLOR)==> push plugin : ${PLUGIN_IMAGE_SRV}$(NO_COLOR)"
+	@echo -e "$(OK_COLOR)==> push : ${PLUGIN_IMAGE_SRV}$(NO_COLOR)"
 	docker push ${PLUGIN_IMAGE_SRV}
 	
 docker-image-cli:
@@ -34,7 +34,7 @@ docker-image-cli:
 	docker build -t ${PLUGIN_IMAGE_CLI}  -f ${DOCKERFILE_CLI} .
 
 docker-image-push-cli:
-	@echo -e "$(OK_COLOR)==> push plugin : ${PLUGIN_IMAGE_CLI}$(NO_COLOR)"
+	@echo -e "$(OK_COLOR)==> push : ${PLUGIN_IMAGE_CLI}$(NO_COLOR)"
 	docker push ${PLUGIN_IMAGE_CLI}
 
 
