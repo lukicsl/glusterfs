@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-
+VOLUME /etc/glusterfs
 COPY ./server.sh /tmp
 RUN chmod ug+x /tmp/server.sh
 CMD ["/tmp/server.sh"]
