@@ -3,7 +3,7 @@ echo $$
 trap 'trap - TERM; umount $LC_DIR; kill -s TERM -- -$$' TERM
 
 if [ -f /opt/gluster/hostname ] && [ $LC_SRV == "localhost" ]; then
-  LC_SRV=`cat /etc/hostname-host`
+  LC_SRV=`cat /opt/gluster/hostname`
 fi
 
 if [ ! -d $LC_DIR ]; then
