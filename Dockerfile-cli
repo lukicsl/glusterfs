@@ -4,7 +4,7 @@ MAINTAINER Slavisa lukic  <lukic@gmx.ch>
 
 ENV container docker
 ENV LC_SRV=localhost
-ENV GVOL=/gv0
+ENV GVOL=vol
 ENV LC_DIR=/datavol
 
 RUN apt-get update && \
